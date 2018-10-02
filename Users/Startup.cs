@@ -46,6 +46,9 @@ public void ConfigureServices(IServiceCollection services) {
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
+
+            AppIdentityDbContext.CreateAdminAccount(app.ApplicationServices,
+                Configuration).Wait();
         }
     }
 }
